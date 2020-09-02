@@ -1,0 +1,9 @@
+<h1>Book A Flight</h1>
+
+<%= form_for(:flight, url: flights_url, method: :GET) do |f| %>
+  From: <%= f.select(:from_airport, @airports) %>
+  To: <%= f.select(:to_airport, @airports) %>
+  Departure: <%= f.select(:departure, @times) %>
+  # of Passengers: <%= f.select(:passengers, @passengers) %>
+  <%= f.submit "Search" %>
+<% end %>
