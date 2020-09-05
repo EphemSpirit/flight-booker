@@ -4,6 +4,8 @@ class FlightsController < ApplicationController
     @airport_options = Airport.all.map{ |x| [x.code, x.id] }
     @existing_times = Flight.all.map{ |x| [x.departure] }
     @passengers = [1, 2, 3, 4]
+    @results = Flight.where("start = ? AND finish = ? AND departure = ?", params[:from_airport], params[:to_airport], params[:departure])
+    #@results = Flight.search(flight_params)
   end
 
   private
